@@ -6,22 +6,23 @@
 
 # ---------------------------Classes-----------------------------
 
-class MenuOutOfRange(Exception): # Creates a custom class, which inherits from the exception class, called MenuOutOfRange
+class ValueOutOfRange(Exception): # Creates a custom class, which inherits from the exception class, called MenuOutOfRange
     pass # Do nothing
 
 class Student: # Create a class called student
     sFirstName = "" # Create some member attributes to define the object
     sLastName = ""
     iUserAge = 0
-    sUserName = ""
     bAttendance = False
 
-    def __init__(self, sFirstName, sLastName, iUserAge, sUserName, bAttendance): # Constructor used to initialise the student objects with data provided by the user
+    def __init__(self, sFirstName, sLastName, iUserAge): # Constructor used to initialise the student objects with data provided by the user
         self.FirstName = sFirstName
         self.LastName = sLastName
         self.UserAge = iUserAge
-        self.Username = sUserName
-        self.Attendance = bAttendance
+        #self.Attendance = bAttendance
+
+    def PrintDetails(self):
+        print(self.FirstName, self.LastName, self.iUserAge, self.bAttendance)
 
 class Class: # Create a class called Class
     sClassName = "" # Create a variable inside the class
@@ -60,9 +61,9 @@ def MenuErrors(s_MenuItems, sUserInput): # Create a function called MenuErrors t
         iUserInput = int(sUserInput) # Try to convert the user input into an integer
     
         if iUserInput > len(s_MenuItems) - 1 or iUserInput < 1: # If the user entered a number outside of the numbers in the list, do this
-            raise MenuOutOfRange # Raise the custom exception
+            raise ValueOutOfRange # Raise the custom exception
 
-    except MenuOutOfRange: # If the custom exception MenuOutOfRange is raised, do this
+    except ValueOutOfRange: # If the custom exception MenuOutOfRange is raised, do this
         print("\nPlease only enter a valid number from the list provided")
         input("[Press enter to try again]") # Ask the user to press enter to continue, to make sure they saw the message
 
@@ -79,27 +80,54 @@ def MenuErrors(s_MenuItems, sUserInput): # Create a function called MenuErrors t
 
 def RegStudents():
 
-    bLoop = True # Create a variable for exiting a loop
+    s_MenuItems = ["Please choose an option: ", "Add New Student", "Exit"]
 
-    while bLoop == True: # While bLoop is True, do this
+    bContinue = True
 
-        sFirstName = input("Please enter the students first name: ") # Asks the user for a first name
-        sLastName = input("Please enter the students last name: ") # Asks the user for a last name
-        iUserAge = input("Please enter the students age: ") # Asks the user for the students age
-        sUserName = input("Please enter a username for the student or leave blank to use a pre-generated username (for example: JSmith): ")
-        if sFirstName == "" or sLastName == "": # If the first name or last name variables are left empty, do this
-            print("\nYou need to enter both a first name and a last name")
-        
-        else: # If the first if-statement doesn't trigger, do this
+    while bContinue == True:
 
-            if sUserName == "":
-                sUserName = sFirstName[:1] + sLastName[:]
-                print(sUserName)
+        sUserInput = Menu(s_MenuItems)
+
+        if sUserInput == "1":
+
+            s_InputDetails = ["","",""]
+
+            bLoop = True # Create a variable for exiting a loop
+
+            while bLoop == True: # While bLoop is True, do this
+
+                s_InputDetails[0] = input("Please enter the students first name: ") # Asks the user for a first name
+                s_InputDetails[1] = input("Please enter the students last name: ") # Asks the user for a last name
+
+                bAge = False
+                while bAge == False:
+
+                    try:
+                        s_InputDetails[2] = int(input("Please enter the students age: ")) # Asks the user for the students age
+
+                        if s_InputDetails[2] < 16 or s_InputDetails[2] > 120: # If iAge is outside the age boundaries, do this
+                            raise ValueOutOfRange # Raise the ValueOutOfRange error
+
+                    except ValueOutOfRange: # If the ValueOutOfRange error is raised, do this
+                        print("The age entered needs to be between 16 and 120, please try again")
+
+                    except ValueError: # If the 'ValueError' error is raised, do this
+                        print("Please enter a valid whole number")
+
+                    except: # If an error that not included above occurs, do this
+                        print("Unkown Error occured, please try again")
+
+                    else: # If there are no errors, do this
+                        bAge = True # Set bAge to True, breaking the loop
+                        o_StudentList.append(Student(s_InputDetails[0], s_InputDetails[1], s_InputDetails[2]))
+       
+                bLoop = False # Set bLoop to False, exiting the loop
         
-            bLoop = False # Set bLoop to False, exiting the loop
+        elif sUserInput == "2":
+            print("Returning to previous menu")
+            bContinue = False            
+            return o_StudentList
         
-        o_StudentList.append(Student(sFirstName, sLastName, sUserName)) # Create an object with the properties of sFirstName and sLastName and append it to the end of the list
-        print(o_StudentList[-1].FirstName, o_StudentList[-1].LastName, o_StudentList[-1].Username) # Print the students first and last name for the object just created
 
 # ---------------------------Functions-----------------------------
 
@@ -123,7 +151,7 @@ while bContinue == True: # While bContinue is True, loop
 
     if sUserInput == "1": # If the user enters 1, do this
     
-        RegStudents()
+        o_StudentList.append(RegStudents())
 
         LineBreak()
   
