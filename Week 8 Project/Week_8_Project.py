@@ -16,10 +16,12 @@ class Student: # Create a class called student
   sUserName = ""
   bAttendance = False
 
-  def __init__(self, sFirstName, sLastName, sUserName): # Initialise the variables with data provided by the user
+  def __init__(self, sFirstName, sLastName, iUserAge, sUserName, bAttendance): # Initialise the variables with data provided by the user
     self.FirstName = sFirstName
     self.LastName = sLastName
+    self.UserAge = iUserAge
     self.Username = sUserName
+    self.Attendance = bAttendance
 
 class Class: # Create a class called Class
   sClassName = "" # Create a variable inside the class
