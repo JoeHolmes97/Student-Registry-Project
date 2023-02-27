@@ -80,11 +80,11 @@ def MenuErrors(s_MenuItems, sUserInput): # Create a function called MenuErrors t
 
 def RegStudents():
 
-    s_MenuItems = ["Please choose an option: ", "Add New Student", "Exit"]
-
     bContinue = True
 
     while bContinue == True:
+
+        s_MenuItems = ["Please choose an option: ", "Add New Student", "Exit"]
 
         sUserInput = Menu(s_MenuItems)
 
@@ -118,10 +118,24 @@ def RegStudents():
                         print("Unkown Error occured, please try again")
 
                     else: # If there are no errors, do this
-                        bAge = True # Set bAge to True, breaking the loop
-                        o_StudentList.append(Student(s_InputDetails[0], s_InputDetails[1], s_InputDetails[2]))
+ 
+                        print("First Name: " + s_InputDetails[0] + "\nLast Name: " + s_InputDetails[1] + "\nAge: " + str(s_InputDetails[2]))
+
+                        s_MenuItems = ["Are you happy with these details?", "Yes", "No"]
+                        sUserChoice = Menu(s_MenuItems)
+
+                        if sUserChoice == "1":
+                            
+                            o_StudentList.append(Student(s_InputDetails[0], s_InputDetails[1], s_InputDetails[2]))
+
+                            bAge = True
+                            bLoop = False # Set bLoop to False, exiting the loop
+                        elif sUserChoice == "2":
+                            print("Please enter the details again")
+
+                            bAge = True
        
-                bLoop = False # Set bLoop to False, exiting the loop
+
         
         elif sUserInput == "2":
             print("Returning to previous menu")
