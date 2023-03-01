@@ -12,17 +12,17 @@ class ValueOutOfRange(Exception): # Creates a custom exception, which inherits f
 class Student: # Class for students
     sFirstName = "" # Create some member attributes to define the object
     sLastName = ""
-    iUserAge = 0
+    iAge = 0
     bAttendance = False
 
-    def __init__(self, sFirstName, sLastName, iUserAge): # Constructor used to initialise the student objects with data provided by the user
+    def __init__(self, sFirstName, sLastName, iAge): # Constructor used to initialise the student objects with data provided by the user
         self.FirstName = sFirstName
         self.LastName = sLastName
-        self.UserAge = iUserAge
+        self.UserAge = iAge
         #self.Attendance = bAttendance
 
     def PrintDetails(self): # Member function for printing the attributes of the object
-        print(self.FirstName, self.LastName, self.iUserAge, self.bAttendance)
+        print(self.FirstName, self.LastName, self.iAge, self.bAttendance)
 
 class Class: # Create a class called Class
     sClassName = "" # Create a variable inside the class
@@ -78,7 +78,7 @@ def MenuErrors(s_MenuItems, sUserInput): # Function for errors in the dynamic me
     else: # If no errors are raised, do this
         return False # Return the value False
 
-def RegStudents(): # Function for registering students
+def RegStudents(o_StudentList): # Function for registering students
 
     bContinue = True # Set bContinue to True
 
@@ -143,6 +143,14 @@ def RegStudents(): # Function for registering students
             print("Returning to previous menu")
             bContinue = False            
             return o_StudentList
+
+def DisplayStudents(o_StudentList): # Function to diplay all students in the o_StudentList list
+       
+    for i in range(0, len(o_StudentList)):
+
+        print("\nName: " + o_StudentList[i].sFirstName, o_StudentList[i].sLastName)
+        print("Age:", o_StudentList[i].iAge)
+                   
         
 
 # ---------------------------Functions-----------------------------
@@ -170,10 +178,9 @@ while bContinue == True: # While bContinue is True, loop
 
     if sUserInput == "1": # If the user enters 1, do this
     
-        o_StudentList.append(RegStudents()) # Run the RegStudents() function, and appends the returned result to o_StudentList list
-
-        for i in range(len(o_StudentList)): # For loop to print out all objects in o_StudentList
-            pass
+        RegStudents(o_StudentList) # Run the RegStudents() function, and appends the returned result to o_StudentList list
+        
+        DisplayStudents(o_StudentList)
 
         LineBreak()
   
