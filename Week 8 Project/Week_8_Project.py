@@ -153,7 +153,10 @@ LineBreak()
 
 print("Welcome to the college registry menu\n")
 
-o_StudentList = [] # Create an empty list for the Student objects
+# o_StudentList = [] # Create an empty list for the Student objects ----------------Replace next line of code with this one when testing is finished
+
+o_StudentList = [Student("Joe", "Holmes", 25), Student("Jack", "Ryan", 33), Student("James", "Cameron", 44), Student("Jill", "Valentine", 30), Student("Lyse", "Hext", 26)]
+# Test data above ^
 
 bContinue = True # Set up a variable for exiting a loop
 
