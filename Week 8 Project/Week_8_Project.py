@@ -169,7 +169,7 @@ while bContinue == True: # While bContinue is True, loop
     
         o_StudentList.append(RegStudents()) # Run the RegStudents() function, and appends the returned result to o_StudentList list
 
-        for i in range(len(o_StudentList)):
+        for i in range(len(o_StudentList)): # For loop to print out all objects in o_StudentList
             pass
 
         LineBreak()
