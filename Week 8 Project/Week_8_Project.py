@@ -6,10 +6,10 @@
 
 # ---------------------------Classes-----------------------------
 
-class ValueOutOfRange(Exception): # Creates a custom class, which inherits from the exception class, called MenuOutOfRange
+class ValueOutOfRange(Exception): # Creates a custom exception, which inherits from the exception class, called ValueOutOfRange
     pass # Do nothing
 
-class Student: # Create a class called student
+class Student: # Class for students
     sFirstName = "" # Create some member attributes to define the object
     sLastName = ""
     iUserAge = 0
@@ -21,7 +21,7 @@ class Student: # Create a class called student
         self.UserAge = iUserAge
         #self.Attendance = bAttendance
 
-    def PrintDetails(self):
+    def PrintDetails(self): # Member function for printing the attributes of the object
         print(self.FirstName, self.LastName, self.iUserAge, self.bAttendance)
 
 class Class: # Create a class called Class
@@ -37,7 +37,7 @@ class Class: # Create a class called Class
 def LineBreak(): # Function for printing a line break
     print("\n------------------------\n")
 
-def Menu(s_MenuItems): # Create a function called Menu which accepts 1 argument
+def Menu(s_MenuItems): # Function for creating a dynamic menu
 
     bLoop = True # Set a variable for exiting a loop
 
@@ -54,7 +54,7 @@ def Menu(s_MenuItems): # Create a function called Menu which accepts 1 argument
   
     return sUserInput # Return the user input
 
-def MenuErrors(s_MenuItems, sUserInput): # Create a function called MenuErrors that accepts exactly 2 arguments
+def MenuErrors(s_MenuItems, sUserInput): # Function for errors in the dynamic menu
 
     try: # Starts the try-except
 
@@ -78,19 +78,19 @@ def MenuErrors(s_MenuItems, sUserInput): # Create a function called MenuErrors t
     else: # If no errors are raised, do this
         return False # Return the value False
 
-def RegStudents():
+def RegStudents(): # Function for registering students
 
-    bContinue = True
+    bContinue = True # Set bContinue to True
 
-    while bContinue == True:
+    while bContinue == True: # While bContinue is True, loop
 
-        s_MenuItems = ["Please choose an option: ", "Add New Student", "Exit"]
+        s_MenuItems = ["Please choose an option: ", "Add New Student", "Exit"] # Create a list of menu options
 
-        sUserInput = Menu(s_MenuItems)
+        sUserInput = Menu(s_MenuItems) # Run the dynamic menu function and assign the returned result to sUserInput
 
-        if sUserInput == "1":
+        if sUserInput == "1": # If the user enters 1, do this
 
-            s_InputDetails = ["","",""]
+            s_InputDetails = ["","",""] # Create a blank list with 3 entries
 
             bLoop = True # Create a variable for exiting a loop
 
@@ -99,10 +99,10 @@ def RegStudents():
                 s_InputDetails[0] = input("Please enter the students first name: ") # Asks the user for a first name
                 s_InputDetails[1] = input("Please enter the students last name: ") # Asks the user for a last name
 
-                bAge = False
-                while bAge == False:
+                bAge = False # Set bAge to false (representing that the age entered was invalid)
+                while bAge == False: # While bAge is false, loop
 
-                    try:
+                    try: # Try this, if an error occurs, raise an exception
                         s_InputDetails[2] = int(input("Please enter the students age: ")) # Asks the user for the students age
 
                         if s_InputDetails[2] < 16 or s_InputDetails[2] > 120: # If iAge is outside the age boundaries, do this
@@ -121,12 +121,14 @@ def RegStudents():
  
                         print("First Name: " + s_InputDetails[0] + "\nLast Name: " + s_InputDetails[1] + "\nAge: " + str(s_InputDetails[2]))
 
-                        s_MenuItems = ["Are you happy with these details?", "Yes", "No"]
-                        sUserChoice = Menu(s_MenuItems)
+                        s_MenuItems = ["Are you happy with these details?", "Yes", "No"] # Create a list of menu items
+                        sUserChoice = Menu(s_MenuItems) # Run the dynamic menu function using the menu items, and assign the returned value to sUserChoice
 
-                        if sUserChoice == "1":
+                        if sUserChoice == "1": # If the user enters 1, do this
                             
-                            o_StudentList.append(Student(s_InputDetails[0], s_InputDetails[1], s_InputDetails[2]))
+                            o_StudentList.append(Student(s_InputDetails[0], s_InputDetails[1], s_InputDetails[2])) # Create a Student object with the attributes entered (first
+                            # name, last name and age) and append the object to the end of o_StudentList
+   
 
                             bAge = True
                             bLoop = False # Set bLoop to False, exiting the loop
@@ -165,15 +167,18 @@ while bContinue == True: # While bContinue is True, loop
 
     if sUserInput == "1": # If the user enters 1, do this
     
-        o_StudentList.append(RegStudents())
+        o_StudentList.append(RegStudents()) # Run the RegStudents() function, and appends the returned result to o_StudentList list
+
+        for i in range(len(o_StudentList)):
+            pass
 
         LineBreak()
   
     elif sUserInput == "2":
-        print("Coming soon 2")
+        print("Coming soon 2") # Assign a student to a class, not coded yet
 
     elif sUserInput == "3":
-        print("Coming soon 3")
+        print("Coming soon 3") # Take a register, not coded yet
 
     elif sUserInput == "4": # Option for exiting the program
         print("Exiting the program")
