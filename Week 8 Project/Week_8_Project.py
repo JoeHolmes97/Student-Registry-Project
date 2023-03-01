@@ -18,7 +18,7 @@ class Student: # Class for students
     def __init__(self, sFirstName, sLastName, iAge): # Constructor used to initialise the student objects with data provided by the user
         self.FirstName = sFirstName
         self.LastName = sLastName
-        self.UserAge = iAge
+        self.Age = iAge
         #self.Attendance = bAttendance
 
     def PrintDetails(self): # Member function for printing the attributes of the object
@@ -135,10 +135,8 @@ def RegStudents(o_StudentList): # Function for registering students
                         elif sUserChoice == "2":
                             print("Please enter the details again")
 
-                            bAge = True
-       
-
-        
+                            bAge = True     
+                                    
         elif sUserInput == "2":
             print("Returning to previous menu")
             bContinue = False            
@@ -146,12 +144,25 @@ def RegStudents(o_StudentList): # Function for registering students
 
 def DisplayStudents(o_StudentList): # Function to diplay all students in the o_StudentList list
        
-    for i in range(0, len(o_StudentList)):
+    for i in range(0, len(o_StudentList)): # Run through the student list
 
-        print("\nName: " + o_StudentList[i].sFirstName, o_StudentList[i].sLastName)
-        print("Age:", o_StudentList[i].iAge)
+        print("\nName: " + o_StudentList[i].FirstName, o_StudentList[i].LastName) # Prints the first and last name of the student
+        print("Age:", o_StudentList[i].Age) # Prints the students age
                    
-        
+def AssignStudents(o_StudentList, s_Classes): # Function for assigning a student to a class
+
+    DisplayStudents(o_StudentList) # Run the DisplayStudents function with the list o_StudentList
+
+    print("\n----------------Assign Student----------------\n")
+
+    s_MenuItems = ["Which student would you like to assign to a class?"] # Create a list with this string as the only entry
+
+    for i in range(0, len(o_StudentList)): # Loop a number of times equal to the number of students
+        s_MenuItems.append(o_StudentList[i].FirstName + " " + o_StudentList[i].LastName) # Add the first and last name of the current student to the end of the list
+
+    s_MenuItems.append("Return to main menu") # Add this option to the end of the list
+
+    Menu(s_MenuItems) # Run the Menu function with the list s_MenuItems
 
 # ---------------------------Functions-----------------------------
 
@@ -165,6 +176,8 @@ print("Welcome to the college registry menu\n")
 
 o_StudentList = [Student("Joe", "Holmes", 25), Student("Jack", "Ryan", 33), Student("James", "Cameron", 44), Student("Jill", "Valentine", 30), Student("Lyse", "Hext", 26)]
 # Test data above ^
+s_Classes = ["Programming", "Maths", "English", "Pyhsics", "History"]
+
 
 bContinue = True # Set up a variable for exiting a loop
 
@@ -184,8 +197,9 @@ while bContinue == True: # While bContinue is True, loop
 
         LineBreak()
   
-    elif sUserInput == "2":
-        print("Coming soon 2") # Assign a student to a class, not coded yet
+    elif sUserInput == "2": # Assign a student to a class, not coded yet
+       
+        AssignStudents(o_StudentList, s_Classes)
 
     elif sUserInput == "3":
         print("Coming soon 3") # Take a register, not coded yet
