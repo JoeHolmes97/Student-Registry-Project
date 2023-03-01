@@ -10,6 +10,7 @@ class ValueOutOfRange(Exception): # Creates a custom exception, which inherits f
     pass # Do nothing
 
 class Student: # Class for students
+
     sFirstName = "" # Create some member attributes to define the object
     sLastName = ""
     iAge = 0
@@ -17,6 +18,7 @@ class Student: # Class for students
     bAttendance = False
 
     def __init__(self, sFirstName, sLastName, iAge): # Constructor used to initialise the student objects with data provided by the user
+
         self.FirstName = sFirstName
         self.LastName = sLastName
         self.Age = iAge
@@ -24,7 +26,12 @@ class Student: # Class for students
         #self.Attendance = bAttendance
 
     def PrintDetails(self): # Member function for printing the attributes of the object
+
         print(self.FirstName, self.LastName, self.iAge, self.bAttendance)
+
+    def GetName(self): # Member function to return the students first and last name
+
+        return self.FirstName + " " + self.LastName # Return the first and last name as a concatinated string
 
 class Class: # Create a class called Class
     sClassName = "" # Create a variable inside the class
@@ -184,7 +191,7 @@ def AssignStudents(o_StudentList, s_Classes): # Function for assigning a student
 
             while bLoop == True:
                 
-                s_MenuItems = ["\n Which class would you like to assign " + o_StudentList[iMenuChoice-1].FirstName + " " + o_StudentList[iMenuChoice-1].LastName + " to?"]
+                s_MenuItems = ["\n Which class would you like to assign " + o_StudentList[iMenuChoice-1].GetName() + " to?"]
 
                 for x in range(0, len(s_Classes)):
 
@@ -204,7 +211,7 @@ def AssignStudents(o_StudentList, s_Classes): # Function for assigning a student
 
                     o_StudentList[iMenuChoice - 1].sClassName = s_Classes[iClassChoice-1]
 
-                    print("You have successfully assigned " + o_StudentList[iMenuChoice-1].FirstName + " " + o_StudentList[iMenuChoice-1].LastName + " to " + s_Classes[iClassChoice-1])
+                    print("You have successfully assigned " + o_StudentList[iMenuChoice-1].GetName() + " to " + s_Classes[iClassChoice-1])
 
 # ---------------------------Functions-----------------------------
 
