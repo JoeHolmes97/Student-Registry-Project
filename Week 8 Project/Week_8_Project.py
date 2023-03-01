@@ -13,12 +13,14 @@ class Student: # Class for students
     sFirstName = "" # Create some member attributes to define the object
     sLastName = ""
     iAge = 0
+    sClassName = ""
     bAttendance = False
 
     def __init__(self, sFirstName, sLastName, iAge): # Constructor used to initialise the student objects with data provided by the user
         self.FirstName = sFirstName
         self.LastName = sLastName
         self.Age = iAge
+        # self.Class = sClassName
         #self.Attendance = bAttendance
 
     def PrintDetails(self): # Member function for printing the attributes of the object
@@ -83,6 +85,8 @@ def RegStudents(o_StudentList): # Function for registering students
     bContinue = True # Set bContinue to True
 
     while bContinue == True: # While bContinue is True, loop
+
+        print("\n----------------Register Student Menu----------------\n")
 
         s_MenuItems = ["Please choose an option: ", "Add New Student", "Exit"] # Create a list of menu options
 
@@ -151,18 +155,56 @@ def DisplayStudents(o_StudentList): # Function to diplay all students in the o_S
                    
 def AssignStudents(o_StudentList, s_Classes): # Function for assigning a student to a class
 
-    DisplayStudents(o_StudentList) # Run the DisplayStudents function with the list o_StudentList
+    bContinue = True
 
-    print("\n----------------Assign Student----------------\n")
+    while bContinue == True:
 
-    s_MenuItems = ["Which student would you like to assign to a class?"] # Create a list with this string as the only entry
+        DisplayStudents(o_StudentList) # Run the DisplayStudents function with the list o_StudentList
 
-    for i in range(0, len(o_StudentList)): # Loop a number of times equal to the number of students
-        s_MenuItems.append(o_StudentList[i].FirstName + " " + o_StudentList[i].LastName) # Add the first and last name of the current student to the end of the list
+        print("\n----------------Assign Student----------------\n")
 
-    s_MenuItems.append("Return to main menu") # Add this option to the end of the list
+        s_MenuItems = ["Which student would you like to assign to a class?"] # Create a list with this string as the only entry
 
-    Menu(s_MenuItems) # Run the Menu function with the list s_MenuItems
+        for i in range(0, len(o_StudentList)): # Loop a number of times equal to the number of students
+            s_MenuItems.append(o_StudentList[i].FirstName + " " + o_StudentList[i].LastName) # Add the first and last name of the current student to the end of the list
+
+        s_MenuItems.append("Return to main menu") # Add this option to the end of the list
+
+        iMenuChoice = int(Menu(s_MenuItems)) # Run the Menu function with the list s_MenuItems
+
+        if iMenuChoice == len(s_MenuItems) - 1: # If the user chooses the last menu option, do this
+            
+            bContinue = False # Set bContinue to False, exiting the loop
+
+            LineBreak()
+
+        else:
+
+            bLoop = True
+
+            while bLoop == True:
+                
+                s_MenuItems = ["\n Which class would you like to assign " + o_StudentList[iMenuChoice-1].FirstName + " " + o_StudentList[iMenuChoice-1].LastName + " to?"]
+
+                for x in range(0, len(s_Classes)):
+
+                    s_MenuItems.append(s_Classes[x])
+
+                s_MenuItems.append("Return")
+
+                iClassChoice = int(Menu(s_MenuItems))
+
+                if iClassChoice == len(s_MenuItems) - 1:
+                    
+                    bLoop = False
+
+                else: 
+
+                    bLoop = False
+
+                    o_StudentList[iMenuChoice - 1].sClassName = s_Classes[iClassChoice-1]
+
+                    print("You have successfully assigned " + o_StudentList[iMenuChoice-1].FirstName + " " + o_StudentList[iMenuChoice-1].LastName + " to " + s_Classes[iClassChoice-1])
 
 # ---------------------------Functions-----------------------------
 
@@ -183,6 +225,8 @@ bContinue = True # Set up a variable for exiting a loop
 
 while bContinue == True: # While bContinue is True, loop
   
+    print("\n----------------College Registry Main Menu----------------\n")
+
     s_MenuItems = ["Please select an option:", "Register student", "Assign a student to a class", "Take a register", "Exit the program"]
 # Creates a list of menu items to use, with the possibity of adding more
     sUserInput = Menu(s_MenuItems) # Run the function Menu with the list of menu items, and assign the returned value to sUserInput
