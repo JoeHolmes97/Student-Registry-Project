@@ -33,12 +33,6 @@ class Student: # Class for students
 
         return self.FirstName + " " + self.LastName # Return the first and last name as a concatinated string
 
-class Class: # Create a class called Class
-    sClassName = "" # Create a variable inside the class
-
-    def __init__(self): # Initialise the variables
-        self.Class = "None"
-
 # ---------------------------Classes-----------------------------
 
 # ---------------------------Functions-----------------------------
