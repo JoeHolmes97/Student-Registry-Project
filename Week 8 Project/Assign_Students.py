@@ -1,7 +1,7 @@
 
 # Module for assigning students
 
-from Generic_Functions import (Menu,LineBreak)
+from Generic_Functions import (Menu,LineBreak,DisplayStudents)
 
 def AssignStudents(o_StudentList, s_Classes): # Function for assigning a student to a class
 
@@ -9,7 +9,7 @@ def AssignStudents(o_StudentList, s_Classes): # Function for assigning a student
 
     while bContinue == True:
 
-        GenFun.DisplayStudents(o_StudentList) # Run the DisplayStudents function with the list o_StudentList
+        DisplayStudents(o_StudentList) # Run the DisplayStudents function with the list o_StudentList
 
         print("\n----------------Assign Student----------------\n")
 
