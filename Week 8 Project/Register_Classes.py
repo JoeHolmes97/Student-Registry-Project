@@ -9,7 +9,7 @@ class Student: # Class for students
     sFirstName = "" # Create some member attributes to define the object
     sLastName = ""
     iAge = 0
-    sClassName = ""
+    sSubjectName = ""
     bAttendance = False
 
     def __init__(self, sFirstName, sLastName, iAge): # Constructor used to initialise the student objects with data provided by the user
@@ -28,11 +28,11 @@ class Student: # Class for students
 
         return self.FirstName + " " + self.LastName # Return the first and last name as a concatinated string
 
-class Classes():
+class Subjects():
 
-    className = ""
-    classStudents = list()
+    subjectName = ""
+    subjectStudents = list()
 
-    def __init__(self, className):
+    def __init__(self, subjectName):
 
-        self.className = className
+        self.subjectName = subjectName

@@ -3,7 +3,7 @@
 
 from Generic_Functions import (Menu,LineBreak,DisplayStudents)
 
-def AssignStudents(o_StudentList, s_Classes): # Function for assigning a student to a class
+def AssignStudents(o_StudentList, s_Subjects): # Function for assigning a student to a class
 
     bContinue = True
 
@@ -36,15 +36,15 @@ def AssignStudents(o_StudentList, s_Classes): # Function for assigning a student
                 
                 s_MenuItems = ["\n Which class would you like to assign " + o_StudentList[iMenuChoice-1].GetName() + " to?"]
 
-                for x in range(0, len(s_Classes)):
+                for x in range(0, len(s_Subjects)):
 
-                    s_MenuItems.append(s_Classes[x])
+                    s_MenuItems.append(s_Subjects[x].subjectName)
 
                 s_MenuItems.append("Return")
 
-                iClassChoice = int(Menu(s_MenuItems))
+                iSubjectChoice = int(Menu(s_MenuItems))
 
-                if iClassChoice == len(s_MenuItems) - 1:
+                if iSubjectChoice == len(s_MenuItems) - 1:
                     
                     bLoop = False
 
@@ -52,6 +52,6 @@ def AssignStudents(o_StudentList, s_Classes): # Function for assigning a student
 
                     bLoop = False
 
-                    o_StudentList[iMenuChoice - 1].sClassName = s_Classes[iClassChoice-1]
+                    o_StudentList[iMenuChoice - 1].sSubjectName = s_Subjects[iSubjectChoice-1]
 
-                    print("You have successfully assigned " + o_StudentList[iMenuChoice-1].GetName() + " to " + s_Classes[iClassChoice-1])
+                    print("You have successfully assigned " + o_StudentList[iMenuChoice-1].GetName() + " to " + s_Subjects[iSubjectChoice-1])

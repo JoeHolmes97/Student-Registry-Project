@@ -4,7 +4,7 @@
 #  - Register student, assign student to class, take register, exit program
 # - Inside list
 
-from Register_Classes import (Student,Classes)
+from Register_Classes import (Student, Subjects)
 from Generic_Functions import (Menu,DisplayStudents,LineBreak)
 import Register_Students as RegStu
 import Assign_Students as AsnStu
@@ -30,7 +30,7 @@ def MainProgram():
 
     o_StudentList = [Student("Joe", "Holmes", 25), Student("Jack", "Ryan", 33), Student("James", "Cameron", 44), Student("Jill", "Valentine", 30), Student("Lyse", "Hext", 26)]
     # Test data above ^
-    s_Classes = [Classes("Programming"), Classes("Maths"), Classes("English"), Classes("Pyhsics"), Classes("History")]
+    s_Subjects = [Subjects("Programming"), Subjects("Maths"), Subjects("English"), Subjects("Pyhsics"), Subjects("History")]
 
 
     bContinue = True # Set up a variable for exiting a loop
