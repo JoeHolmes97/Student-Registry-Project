@@ -1,6 +1,8 @@
 
 # Module for assigning students
 
+from Generic_Functions import (Menu,LineBreak)
+
 def AssignStudents(o_StudentList, s_Classes): # Function for assigning a student to a class
 
     bContinue = True
@@ -18,7 +20,7 @@ def AssignStudents(o_StudentList, s_Classes): # Function for assigning a student
 
         s_MenuItems.append("Return to main menu") # Add this option to the end of the list
 
-        iMenuChoice = int(GenFun.Menu(s_MenuItems)) # Run the Menu function with the list s_MenuItems
+        iMenuChoice = int(Menu(s_MenuItems)) # Run the Menu function with the list s_MenuItems
 
         if iMenuChoice == len(s_MenuItems) - 1: # If the user chooses the last menu option, do this
             
@@ -40,7 +42,7 @@ def AssignStudents(o_StudentList, s_Classes): # Function for assigning a student
 
                 s_MenuItems.append("Return")
 
-                iClassChoice = int(GenFun.Menu(s_MenuItems))
+                iClassChoice = int(Menu(s_MenuItems))
 
                 if iClassChoice == len(s_MenuItems) - 1:
                     

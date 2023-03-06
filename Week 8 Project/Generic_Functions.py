@@ -3,6 +3,10 @@
 
 from Register_Classes import ValueOutOfRange
 
+
+def LineBreak(): # Function for printing a line break
+    print("\n------------------------\n")
+
 def Menu(s_MenuItems): # Function for creating a dynamic menu
 
     bLoop = True # Set a variable for exiting a loop

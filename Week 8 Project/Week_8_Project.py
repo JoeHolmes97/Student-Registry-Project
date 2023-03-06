@@ -5,7 +5,7 @@
 # - Inside list
 
 from Register_Classes import (Student,Classes)
-from Generic_Functions import (Menu,DisplayStudents)
+from Generic_Functions import (Menu,DisplayStudents,LineBreak)
 import Register_Students as RegStu
 import Assign_Students as AsnStu
 
@@ -15,8 +15,6 @@ import Assign_Students as AsnStu
 
 # ---------------------------Functions-----------------------------
 
-def LineBreak(): # Function for printing a line break
-    print("\n------------------------\n")
 
 # ---------------------------Functions-----------------------------
 
