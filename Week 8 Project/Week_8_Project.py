@@ -4,12 +4,12 @@
 #  - Register student, assign student to class, take register, exit program
 # - Inside list
 
-import Register_Classes as Cls
-import Generic_Functions as GenFun
+from Register_Classes import (Student,Classes)
+from Generic_Functions import (Menu,DisplayStudents)
+import Register_Students as RegStu
+import Assign_Students as AsnStu
 
 # ---------------------------Classes-----------------------------
-
-
 
 # ---------------------------Classes-----------------------------
 
@@ -17,10 +17,6 @@ import Generic_Functions as GenFun
 
 def LineBreak(): # Function for printing a line break
     print("\n------------------------\n")
-
-
-                   
-
 
 # ---------------------------Functions-----------------------------
 
@@ -34,9 +30,9 @@ def MainProgram():
 
     # o_StudentList = [] # Create an empty list for the Student objects ----------------Replace next line of code with this one when testing is finished
 
-    o_StudentList = [Cls.Student("Joe", "Holmes", 25), Cls.Student("Jack", "Ryan", 33), Cls.Student("James", "Cameron", 44), Cls.Student("Jill", "Valentine", 30), Student("Lyse", "Hext", 26)]
+    o_StudentList = [Student("Joe", "Holmes", 25), Student("Jack", "Ryan", 33), Student("James", "Cameron", 44), Student("Jill", "Valentine", 30), Student("Lyse", "Hext", 26)]
     # Test data above ^
-    s_Classes = ["Programming", "Maths", "English", "Pyhsics", "History"]
+    s_Classes = [Classes("Programming"), Classes("Maths"), Classes("English"), Classes("Pyhsics"), Classes("History")]
 
 
     bContinue = True # Set up a variable for exiting a loop
@@ -47,21 +43,21 @@ def MainProgram():
 
         s_MenuItems = ["Please select an option:", "Register student", "Assign a student to a class", "Take a register", "Exit the program"]
     # Creates a list of menu items to use, with the possibity of adding more
-        sUserInput = GenFun.Menu(s_MenuItems) # Run the function Menu with the list of menu items, and assign the returned value to sUserInput
+        sUserInput = Menu(s_MenuItems) # Run the function Menu with the list of menu items, and assign the returned value to sUserInput
 
         LineBreak()
 
         if sUserInput == "1": # If the user enters 1, do this
     
-            RegStudents(o_StudentList) # Run the RegStudents() function, and appends the returned result to o_StudentList list
+            RegStu.RegStudents(o_StudentList) # Run the RegStudents() function, and appends the returned result to o_StudentList list
         
-            GenFun.DisplayStudents(o_StudentList)
+            DisplayStudents(o_StudentList)
 
             LineBreak()
   
         elif sUserInput == "2": # Assign a student to a class, not coded yet
        
-            AssignStudents(o_StudentList, s_Classes)
+            AsnStu.AssignStudents(o_StudentList, s_Classes)
 
         elif sUserInput == "3":
             print("Coming soon 3") # Take a register, not coded yet
@@ -70,7 +66,7 @@ def MainProgram():
             print("Exiting the program")
             bContinue = False # Set bContinue to false, exiting the program
 
-Main() # Runs the main program function
+MainProgram() # Runs the main program function
 
 # ---------------------------Main Program-----------------------------
 
