@@ -43,3 +43,10 @@ def MenuErrors(s_MenuItems, sUserInput): # Function for errors in the dynamic me
 
     else: # If no errors are raised, do this
         return False # Return the value False
+
+def DisplayStudents(o_StudentList): # Function to diplay all students in the o_StudentList list
+       
+    for i in range(0, len(o_StudentList)): # Run through the student list
+
+        print("\nName: " + o_StudentList[i].FirstName, o_StudentList[i].LastName) # Prints the first and last name of the student
+        print("Age:", o_StudentList[i].Age) # Prints the students age

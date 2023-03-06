@@ -86,12 +86,7 @@ def RegStudents(o_StudentList): # Function for registering students
             bContinue = False            
             return o_StudentList
 
-def DisplayStudents(o_StudentList): # Function to diplay all students in the o_StudentList list
-       
-    for i in range(0, len(o_StudentList)): # Run through the student list
 
-        print("\nName: " + o_StudentList[i].FirstName, o_StudentList[i].LastName) # Prints the first and last name of the student
-        print("Age:", o_StudentList[i].Age) # Prints the students age
                    
 def AssignStudents(o_StudentList, s_Classes): # Function for assigning a student to a class
 
@@ -99,7 +94,7 @@ def AssignStudents(o_StudentList, s_Classes): # Function for assigning a student
 
     while bContinue == True:
 
-        DisplayStudents(o_StudentList) # Run the DisplayStudents function with the list o_StudentList
+        GenFun.DisplayStudents(o_StudentList) # Run the DisplayStudents function with the list o_StudentList
 
         print("\n----------------Assign Student----------------\n")
 
@@ -177,7 +172,7 @@ while bContinue == True: # While bContinue is True, loop
     
         RegStudents(o_StudentList) # Run the RegStudents() function, and appends the returned result to o_StudentList list
         
-        DisplayStudents(o_StudentList)
+        GenFun.DisplayStudents(o_StudentList)
 
         LineBreak()
   
