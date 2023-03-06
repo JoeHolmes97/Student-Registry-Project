@@ -55,7 +55,7 @@ def MainProgram():
   
         elif sUserInput == "2": # Assign a student to a class, not coded yet
        
-            AsnStu.AssignStudents(o_StudentList, s_Classes)
+            AsnStu.AssignStudents(o_StudentList, s_Subjects)
 
         elif sUserInput == "3":
             print("Coming soon 3") # Take a register, not coded yet
