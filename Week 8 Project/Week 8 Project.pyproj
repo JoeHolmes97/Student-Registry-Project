@@ -21,7 +21,8 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Register Classes.py" />
+    <Compile Include="Generic_Functions.py" />
+    <Compile Include="Register_Classes.py" />
     <Compile Include="Week_8_Project.py" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />

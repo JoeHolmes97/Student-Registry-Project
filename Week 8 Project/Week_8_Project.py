@@ -4,6 +4,9 @@
 #  - Register student, assign student to class, take register, exit program
 # - Inside list
 
+import Register_Classes as Cls
+import Generic_Functions as GenFun
+
 # ---------------------------Classes-----------------------------
 
 
@@ -15,46 +18,7 @@
 def LineBreak(): # Function for printing a line break
     print("\n------------------------\n")
 
-def Menu(s_MenuItems): # Function for creating a dynamic menu
 
-    bLoop = True # Set a variable for exiting a loop
-
-    while bLoop == True: # While bLoop is True, loop
-  
-        print(s_MenuItems[0]) # Print the first item in the menu
-    
-        for i in range(1, len(s_MenuItems)): # Loop a number of times starting at 1 and ending at the length of the list
-      
-            print(str(i) + ": " + s_MenuItems[i]) # Print the number followed by the list item at that index
-        sUserInput = input("--> ") # Get an input from the user
-
-        bLoop = MenuErrors(s_MenuItems, sUserInput) # Set bLoop equal to the returned value for MenuErrors
-  
-    return sUserInput # Return the user input
-
-def MenuErrors(s_MenuItems, sUserInput): # Function for errors in the dynamic menu
-
-    try: # Starts the try-except
-
-        iUserInput = int(sUserInput) # Try to convert the user input into an integer
-    
-        if iUserInput > len(s_MenuItems) - 1 or iUserInput < 1: # If the user entered a number outside of the numbers in the list, do this
-            raise ValueOutOfRange # Raise the custom exception
-
-    except ValueOutOfRange: # If the custom exception MenuOutOfRange is raised, do this
-        print("\nPlease only enter a valid number from the list provided")
-        input("[Press enter to try again]") # Ask the user to press enter to continue, to make sure they saw the message
-
-    except ValueError: # If the ValueError error is raised, do this
-        print("\nPlease input a valid whole number")
-        input("[Press enter to try again]")
-
-    except: # If an error occurs that wasn't one of the above errors, do this
-        print("\nAn unkown error occurred, please try again")
-        input("[Press enter to try again]")
-
-    else: # If no errors are raised, do this
-        return False # Return the value False
 
 def RegStudents(o_StudentList): # Function for registering students
 
@@ -66,7 +30,7 @@ def RegStudents(o_StudentList): # Function for registering students
 
         s_MenuItems = ["Please choose an option: ", "Add New Student", "Exit"] # Create a list of menu options
 
-        sUserInput = Menu(s_MenuItems) # Run the dynamic menu function and assign the returned result to sUserInput
+        sUserInput = GenFun.Menu(s_MenuItems) # Run the dynamic menu function and assign the returned result to sUserInput
 
         if sUserInput == "1": # If the user enters 1, do this
 
@@ -86,9 +50,9 @@ def RegStudents(o_StudentList): # Function for registering students
                         s_InputDetails[2] = int(input("Please enter the students age: ")) # Asks the user for the students age
 
                         if s_InputDetails[2] < 16 or s_InputDetails[2] > 120: # If iAge is outside the age boundaries, do this
-                            raise ValueOutOfRange # Raise the ValueOutOfRange error
+                            raise Cls.ValueOutOfRange # Raise the ValueOutOfRange error
 
-                    except ValueOutOfRange: # If the ValueOutOfRange error is raised, do this
+                    except Cls.ValueOutOfRange: # If the ValueOutOfRange error is raised, do this
                         print("The age entered needs to be between 16 and 120, please try again")
 
                     except ValueError: # If the 'ValueError' error is raised, do this
@@ -102,11 +66,11 @@ def RegStudents(o_StudentList): # Function for registering students
                         print("First Name: " + s_InputDetails[0] + "\nLast Name: " + s_InputDetails[1] + "\nAge: " + str(s_InputDetails[2]))
 
                         s_MenuItems = ["Are you happy with these details?", "Yes", "No"] # Create a list of menu items
-                        sUserChoice = Menu(s_MenuItems) # Run the dynamic menu function using the menu items, and assign the returned value to sUserChoice
+                        sUserChoice = GenFun.Menu(s_MenuItems) # Run the dynamic menu function using the menu items, and assign the returned value to sUserChoice
 
                         if sUserChoice == "1": # If the user enters 1, do this
                             
-                            o_StudentList.append(Student(s_InputDetails[0], s_InputDetails[1], s_InputDetails[2])) # Create a Student object with the attributes entered (first
+                            o_StudentList.append(Cls.Student(s_InputDetails[0], s_InputDetails[1], s_InputDetails[2])) # Create a Student object with the attributes entered (first
                             # name, last name and age) and append the object to the end of o_StudentList
    
 
@@ -146,7 +110,7 @@ def AssignStudents(o_StudentList, s_Classes): # Function for assigning a student
 
         s_MenuItems.append("Return to main menu") # Add this option to the end of the list
 
-        iMenuChoice = int(Menu(s_MenuItems)) # Run the Menu function with the list s_MenuItems
+        iMenuChoice = int(GenFun.Menu(s_MenuItems)) # Run the Menu function with the list s_MenuItems
 
         if iMenuChoice == len(s_MenuItems) - 1: # If the user chooses the last menu option, do this
             
@@ -168,7 +132,7 @@ def AssignStudents(o_StudentList, s_Classes): # Function for assigning a student
 
                 s_MenuItems.append("Return")
 
-                iClassChoice = int(Menu(s_MenuItems))
+                iClassChoice = int(GenFun.Menu(s_MenuItems))
 
                 if iClassChoice == len(s_MenuItems) - 1:
                     
@@ -192,7 +156,7 @@ print("Welcome to the college registry menu\n")
 
 # o_StudentList = [] # Create an empty list for the Student objects ----------------Replace next line of code with this one when testing is finished
 
-o_StudentList = [Student("Joe", "Holmes", 25), Student("Jack", "Ryan", 33), Student("James", "Cameron", 44), Student("Jill", "Valentine", 30), Student("Lyse", "Hext", 26)]
+o_StudentList = [Cls.Student("Joe", "Holmes", 25), Cls.Student("Jack", "Ryan", 33), Cls.Student("James", "Cameron", 44), Cls.Student("Jill", "Valentine", 30), Student("Lyse", "Hext", 26)]
 # Test data above ^
 s_Classes = ["Programming", "Maths", "English", "Pyhsics", "History"]
 
@@ -205,7 +169,7 @@ while bContinue == True: # While bContinue is True, loop
 
     s_MenuItems = ["Please select an option:", "Register student", "Assign a student to a class", "Take a register", "Exit the program"]
 # Creates a list of menu items to use, with the possibity of adding more
-    sUserInput = Menu(s_MenuItems) # Run the function Menu with the list of menu items, and assign the returned value to sUserInput
+    sUserInput = GenFun.Menu(s_MenuItems) # Run the function Menu with the list of menu items, and assign the returned value to sUserInput
 
     LineBreak()
 
