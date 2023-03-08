@@ -9,14 +9,6 @@ from Generic_Functions import (Menu,DisplayStudents,LineBreak)
 import Register_Students as RegStu
 import Assign_Students as AsnStu
 
-# ---------------------------Classes-----------------------------
-
-# ---------------------------Classes-----------------------------
-
-# ---------------------------Functions-----------------------------
-
-# ---------------------------Functions-----------------------------
-
 LineBreak()
 
 # ---------------------------Main Program-----------------------------
