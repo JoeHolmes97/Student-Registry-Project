@@ -3,7 +3,7 @@
 
 from Generic_Functions import (Menu,LineBreak,DisplayStudents,StudentSelectionMenu)
 
-def SelectSubject():
+def SelectSubject(s_Subjects):
 
     pass
 
