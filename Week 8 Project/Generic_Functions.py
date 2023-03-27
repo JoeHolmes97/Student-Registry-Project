@@ -57,26 +57,26 @@ def DisplayStudents(o_StudentList): # Function to diplay all students in the o_S
 
 def DisplayStudentsBySubject(s_Subjects, subjectIndex, incAge):
 
-    if len(s_Subjects[subjectIndex].classStudents) == 0:
+    if len(s_Subjects[subjectIndex].subjectStudents) == 0:
 
         print("\n-----------" + s_Subjects[subjectIndex].className + "-----------\n\n")
         print("There are currently no Students assigned to this subject...\n")
 
     else:
 
-        print("\n-----------" + s_Subjects[subjectIndex].className + "-----------\n\n")
+        print("\n-----------" + s_Subjects[subjectIndex].subjectName + "-----------\n\n")
 
-        for x in range(0, len(s_Subjects[subjectIndex].classStudents)):
+        for x in range(0, len(s_Subjects[subjectIndex].subjectStudents)):
 
-            print("\nName: " + s_Subjects[subjectIndex].classStudents[x].GetName())
+            print("\nName: " + s_Subjects[subjectIndex].subjectStudents[x].GetName())
 
             if incAge == True:
 
-                print("Age: " + str(s_Subjects[subjectIndex].classStudents[x].age))
+                print("Age: " + str(s_Subjects[subjectIndex].subjectStudents[x].age))
 
             else:
 
-                print("Attended: " + s_Subjects[subjectIndex])
+                print("Attended: " + str(s_Subjects[subjectIndex].subjectStudents[subjectIndex].bAttendance))
 
 def StudentSelectionMenu(o_StudentList, listMsg):
 

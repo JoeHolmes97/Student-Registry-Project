@@ -5,7 +5,17 @@ from Generic_Functions import (Menu,LineBreak,DisplayStudents,StudentSelectionMe
 
 def SelectSubject(s_Subjects):
 
-    pass
+    menuList = ["Which subject would you like to assign students into?\n"]
+
+    for x in range(0, len(s_Subjects)):
+
+        menuList.append(s_Subjects[x].subjectName)
+
+    menuList.append("Return to Menu")
+
+    choice = Menu(menuList)
+
+    return choice
 
 def AssignStudents(o_StudentList, s_Subjects): # Function for assigning a student to a class
 

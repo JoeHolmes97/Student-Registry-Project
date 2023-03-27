@@ -36,3 +36,4 @@ class Subjects():
     def __init__(self, subjectName):
 
         self.subjectName = subjectName
+        self.subjectStudents = list()

@@ -52,7 +52,7 @@ def MainProgram():
 
         LineBreak()
 
-        if sUserInput == "1": # If the user enters 1, do this
+        if sUserInput == 1: # If the user enters 1, do this
     
             RegStu.RegStudents(o_StudentList) # Run the RegStudents() function, and appends the returned result to o_StudentList list
         
@@ -60,15 +60,15 @@ def MainProgram():
 
             LineBreak()
   
-        elif sUserInput == "2": # Assign a student to a class, not coded yet
+        elif sUserInput == 2: # Assign a student to a class, not coded yet
        
             AsnStu.AssignStudents(o_StudentList, s_Subjects)
 
-        elif sUserInput == "3":
+        elif sUserInput == 3:
             
             Atn.TakeAttendance(s_Subjects)
 
-        elif sUserInput == "4": # Option for exiting the program
+        elif sUserInput == 4: # Option for exiting the program
             print("Exiting the program")
             bContinue = False # Set bContinue to false, exiting the program
 
