@@ -1,8 +1,30 @@
 
 # Module for registering a students attendance
 
-from Generic_Functions import Menu
+from Generic_Functions import (DisplayStudentsBySubject, StudentSelectionMenu)
+from Assign_Students import SelectSubject
 
 def TakeAttendance(s_Subjects):
 
-	pass
+	subjectChoice = SelectSubject(s_Subjects)
+
+	if subjectChoice != len(s_Subjects) + 1:
+
+		subjectChoice = subjectChoice - 1
+
+		bLoop = True
+		while bLoop == True:
+
+			DisplayStudentsBySubject(s_Subjects, subjectChoice, False)
+
+			studentSelection = StudentSelectionMenu(s_Subjects[subjectChoice].subjectStudents, "--------Take Attendance------", "Select a student")
+
+			if studentSelection != len(s_Subjects[subjectChoice].subjectStudents) + 1:
+
+				if s_Subjects[subjectChoice].subjectStudents[studentSelection - 1].attendance == False:
+
+					s_Subjects[subjectChoice].subjectStudents[studentSelection - 1].attendance = True
+
+				else:
+
+					s_Subjects[subjectChoice].subjectStudents[studentSelection - 1].attendance = False

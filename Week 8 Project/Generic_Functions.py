@@ -55,7 +55,7 @@ def DisplayStudents(o_StudentList): # Function to diplay all students in the o_S
         print("\nName: " + o_StudentList[i].FirstName, o_StudentList[i].LastName) # Prints the first and last name of the student
         print("Age:", o_StudentList[i].Age) # Prints the students age
 
-def DisplayStudentsBySubject(s_Subjects, subjectIndex):
+def DisplayStudentsBySubject(s_Subjects, subjectIndex, incAge):
 
     if len(s_Subjects[subjectIndex].classStudents) == 0:
 
@@ -69,7 +69,14 @@ def DisplayStudentsBySubject(s_Subjects, subjectIndex):
         for x in range(0, len(s_Subjects[subjectIndex].classStudents)):
 
             print("\nName: " + s_Subjects[subjectIndex].classStudents[x].GetName())
-            print("Age: " + str(s_Subjects[subjectIndex].classStudents[x].age))
+
+            if incAge == True:
+
+                print("Age: " + str(s_Subjects[subjectIndex].classStudents[x].age))
+
+            else:
+
+                print("Attended: " + s_Subjects[subjectIndex])
 
 def StudentSelectionMenu(o_StudentList, listMsg):
 
