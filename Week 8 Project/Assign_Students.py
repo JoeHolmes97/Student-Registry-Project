@@ -17,8 +17,6 @@ def AssignStudents(o_StudentList, s_Subjects): # Function for assigning a studen
 
         print("\n----------------Assign Student----------------\n")
 
-           # StudentSelectionMenu function goes here
-
         iMenuChoice = StudentSelectionMenu(o_StudentList, "Which student would you like to assign to a class?")
 
         if iMenuChoice == len(s_MenuItems) - 1: # If the user chooses the last menu option, do this
