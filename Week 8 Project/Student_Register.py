@@ -20,10 +20,25 @@ def MainProgram():
 
     # o_StudentList = [] # Create an empty list for the Student objects ----------------Replace next line of code with this one when testing is finished
 
+    #-----------------------------------------------Hard Coded Data-----------------------------------------------
+
     o_StudentList = [Student("Joe", "Holmes", 25), Student("Jack", "Ryan", 33), Student("James", "Cameron", 44), Student("Jill", "Valentine", 30), Student("Lyse", "Hext", 26)]
-    # Test data above ^
     s_Subjects = [Subjects("Programming"), Subjects("Maths"), Subjects("English"), Subjects("Pyhsics"), Subjects("History")]
 
+    s_Subjects[0].subjectStudents.append(Student("Greg","Smith",19))
+    s_Subjects[0].subjectStudents.append(Student("Jane","Nae",19))
+    s_Subjects[0].subjectStudents.append(Student("Alice","Parker",19))
+    s_Subjects[0].subjectStudents.append(Student("John","Shepard",19))
+    s_Subjects[0].subjectStudents.append(Student("Dave","Yognaut",19))
+    s_Subjects[0].subjectStudents.append(Student("Ben","Ashter",19))
+
+    s_Subjects[1].subjectStudents.append(Student("Mike","Mikeson",19))
+    s_Subjects[1].subjectStudents.append(Student("Jane","Janeson",19))
+    s_Subjects[1].subjectStudents.append(Student("Jack","Jackson",19))
+    s_Subjects[1].subjectStudents.append(Student("Greg","Gregson",19))
+    s_Subjects[1].subjectStudents.append(Student("Love","Solarion",19))
+
+    #-----------------------------------------------Hard Coded Data-----------------------------------------------
 
     bContinue = True # Set up a variable for exiting a loop
 

@@ -33,7 +33,7 @@ def MenuErrors(s_MenuItems, sUserInput): # Function for errors in the dynamic me
         if iUserInput > len(s_MenuItems) - 1 or iUserInput < 1: # If the user entered a number outside of the numbers in the list, do this
             raise ValueOutOfRange # Raise the custom exception
 
-    except Cls.ValueOutOfRange: # If the custom exception MenuOutOfRange is raised, do this
+    except ValueOutOfRange: # If the custom exception MenuOutOfRange is raised, do this
         print("\nPlease only enter a valid number from the list provided")
         input("[Press enter to try again]") # Ask the user to press enter to continue, to make sure they saw the message
 
@@ -54,3 +54,7 @@ def DisplayStudents(o_StudentList): # Function to diplay all students in the o_S
 
         print("\nName: " + o_StudentList[i].FirstName, o_StudentList[i].LastName) # Prints the first and last name of the student
         print("Age:", o_StudentList[i].Age) # Prints the students age
+
+def DisplayStudentsBySubjects(s_Subjects, subjectIndex):
+
+    pass

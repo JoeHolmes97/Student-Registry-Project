@@ -3,6 +3,10 @@
 
 from Generic_Functions import (Menu,LineBreak,DisplayStudents)
 
+def SelectSubject():
+
+    pass
+
 def AssignStudents(o_StudentList, s_Subjects): # Function for assigning a student to a class
 
     bContinue = True
