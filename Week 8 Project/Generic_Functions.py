@@ -22,7 +22,7 @@ def Menu(s_MenuItems): # Function for creating a dynamic menu
 
         bLoop = MenuErrors(s_MenuItems, sUserInput) # Set bLoop equal to the returned value for MenuErrors
   
-    return sUserInput # Return the user input
+    return int(sUserInput) # Return the user input
 
 def MenuErrors(s_MenuItems, sUserInput): # Function for errors in the dynamic menu
 
@@ -58,3 +58,14 @@ def DisplayStudents(o_StudentList): # Function to diplay all students in the o_S
 def DisplayStudentsBySubjects(s_Subjects, subjectIndex):
 
     pass
+
+def StudentSelectionMenu(o_StudentList, listMsg):
+
+    s_MenuItems = [listMsg] # Create a list with this string as the only entry
+
+    for i in range(0, len(o_StudentList)): # Loop a number of times equal to the number of students
+        s_MenuItems.append(o_StudentList[i].FirstName + " " + o_StudentList[i].LastName) # Add the first and last name of the current student to the end of the list
+
+    s_MenuItems.append("Return to main menu") # Add this option to the end of the list
+
+    return Menu(s_MenuItems) # Run the Menu function with the list s_MenuItems
