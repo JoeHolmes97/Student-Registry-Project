@@ -54,4 +54,4 @@ def AssignStudents(o_StudentList, s_Subjects): # Function for assigning a studen
 
                     o_StudentList[iMenuChoice - 1].sSubjectName = s_Subjects[iSubjectChoice-1]
 
-                    print("You have successfully assigned " + o_StudentList[iMenuChoice-1].GetName() + " to " + s_Subjects[iSubjectChoice-1]) # Error here, need to use name rather than object
+                    print("You have successfully assigned " + o_StudentList[iMenuChoice-1].GetName() + " to " + s_Subjects[iSubjectChoice-1].subjectName) # Error here, need to use name rather than object

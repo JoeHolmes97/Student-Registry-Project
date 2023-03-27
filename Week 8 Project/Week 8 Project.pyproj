@@ -4,7 +4,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>4da1915a-7c73-431b-9e33-7e1478d867fb</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>Week_8_Project.py</StartupFile>
+    <StartupFile>Student_Register.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -22,10 +22,11 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Assign_Students.py" />
+    <Compile Include="Attendance.py" />
     <Compile Include="Generic_Functions.py" />
     <Compile Include="Register_Classes.py" />
     <Compile Include="Register_Students.py" />
-    <Compile Include="Week_8_Project.py" />
+    <Compile Include="Student_Register.py" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
   <!-- Uncomment the CoreCompile target to enable the Build command in

@@ -8,6 +8,7 @@ from Register_Classes import (Student, Subjects)
 from Generic_Functions import (Menu,DisplayStudents,LineBreak)
 import Register_Students as RegStu
 import Assign_Students as AsnStu
+import Attendance as Atn
 
 LineBreak()
 
@@ -30,7 +31,7 @@ def MainProgram():
   
         print("\n----------------College Registry Main Menu----------------\n")
 
-        s_MenuItems = ["Please select an option:", "Register student", "Assign a student to a class", "Take a register", "Exit the program"]
+        s_MenuItems = ["Please select an option:", "Register student", "Assign a student to a class", "Take attendance", "Exit the program"]
     # Creates a list of menu items to use, with the possibity of adding more
         sUserInput = Menu(s_MenuItems) # Run the function Menu with the list of menu items, and assign the returned value to sUserInput
 
@@ -49,7 +50,8 @@ def MainProgram():
             AsnStu.AssignStudents(o_StudentList, s_Subjects)
 
         elif sUserInput == "3":
-            print("Coming soon 3") # Take a register, not coded yet
+            
+            Atn.TakeAttendance(s_Subjects)
 
         elif sUserInput == "4": # Option for exiting the program
             print("Exiting the program")
